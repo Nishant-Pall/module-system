@@ -1,18 +1,13 @@
-fn serve() {}
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-    }
+use std::io::{self, Write};
 
-    fn fix_order() {
-        // super keyword
-        super::serve();
-    }
-}
+fn serve() {}
+mod front_of_house;
+
 // use keyword
 // either absolute or relative
 // use crate::front_of_house::hosting;
-use self::front_of_house::hosting;
+// using pub, external code can reference the hosting module
+pub use self::front_of_house::hosting;
 
 pub fn eat_at_restaurant() {
     // Absolute path
